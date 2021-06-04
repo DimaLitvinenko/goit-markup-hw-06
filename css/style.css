@@ -538,7 +538,12 @@ img {
   margin-right: 70px;
 }
 
-.join-container > .title {
+.join-container {
+  margin-right: 93px;
+}
+
+.join-container > .title,
+.subscribe-form > .title {
   display: block;
   margin-bottom: 20px;
 
@@ -577,13 +582,81 @@ img {
 .join-list .link:focus {
   outline: none;
   background-color: var(--accent-color);
+  animation: flip 600ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .join-list .icon {
   fill: currentColor;
 }
+.subscribe-conteiner {
+  display: flex;
+}
+.subscribe-form .subscribe-input {
+  width: 358px;
+  min-height: 50px;
+  padding-left: 16px;
 
-/*------------- Modal Window -------------*/
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 4px;
+  color: var(--primary-white-color);
+  background-color: #2f303a;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.subscribe-input:required:focus:not(:placeholder-shown):valid {
+  border-color: var(--accent-color);
+}
+
+.subscribe-input:required:focus:not(:placeholder-shown):invalid {
+  border-color: red;
+}
+
+.subscribe-form .subscribe-input:hover,
+.subscribe-form .subscribe-input:focus {
+  border: 1px solid #2196f3;
+  outline: #2196f3;
+}
+
+.subscribe-form .submit-button {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  height: 50px;
+  padding: 10px 28px;
+  margin-left: 12px;
+
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 4px;
+
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-form .submit-button:hover,
+.subscribe-form .submit-button:focus {
+  background-color: #188ce8;
+}
+
+.submit-button > .icon {
+  margin-left: 10px;
+  fill: currentColor;
+}
+
+/*----------------- Modal Window ------------------*/
 
 .backdrop {
   position: fixed;
@@ -611,6 +684,7 @@ img {
   width: 528px;
   height: 581px;
   transform: translate(-50%, -50%);
+  padding: 40px;
 
   background-color: var(--primary-white-color);
   border-radius: 4px;
@@ -618,7 +692,7 @@ img {
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.modal-button {
+.modal-button-close {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -636,15 +710,158 @@ img {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-button .icon {
+.modal-button-close .icon {
   fill: currentColor;
 }
 
-.modal-button:hover {
+.modal-button-close:hover {
   color: var(--accent-color);
 }
 
-/*------------- Portfolio -------------*/
+.form-title {
+  display: block;
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--title-text-color);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  position: relative;
+  display: block;
+  margin-top: 4px;
+  color: var(--title-text-color);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: currentColor;
+}
+
+.form-label {
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--primary-text-color);
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .form-input:required:focus:not(:placeholder-shown):valid {
+  border-color: var(--accent-color);
+}
+
+.form-input:required:focus:not(:placeholder-shown):invalid {
+  border-color: red;
+} */
+
+.form-input:focus + .form-icon {
+  color: var(--accent-color);
+}
+
+.form-input:focus {
+  border: 1px solid var(--accent-color);
+  outline: none;
+}
+
+.label-textarea {
+  margin-bottom: 20px;
+}
+
+.form-textarea {
+  height: 120px;
+  padding: 12px 16px;
+  margin-top: 4px;
+  resize: none;
+}
+
+.form-textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.form-checkbox-policy {
+  margin-bottom: 25px;
+
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.form-checkbox-policy::before {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 15px;
+  margin-right: 7px;
+  content: '';
+  border: 2px solid #212121;
+  border-radius: 2px;
+}
+
+.form-checkbox:checked + .form-checkbox-policy::before {
+  background-image: url('/img/icon-checked.svg');
+  background-position: center;
+  background-size: cover;
+  border: none;
+}
+
+.policy-checkbox-link {
+  color: var(--accent-color);
+}
+
+.form-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px 55px 10px 55px;
+  margin: 0 auto;
+
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-button:hover,
+.form-button:focus {
+  background-color: #188ce8;
+}
+
+.checkbox-link {
+  color: var(--accent-color);
+}
+
+/*------------------ Portfolio -------------------*/
 
 .projects-filters {
   display: flex;
@@ -682,6 +899,8 @@ img {
   color: var(--primary-white-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  animation: pulse;
+  animation-duration: 500ms;
 }
 
 .projects-card {
@@ -733,10 +952,6 @@ margin-right: 30px;
   outline: none;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.projects-card .link:hover .overlay-text {
-  transform: translateY(0);
 }
 
 .project-overlay {
