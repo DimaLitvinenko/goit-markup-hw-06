@@ -824,14 +824,19 @@ img {
   content: '';
   border: 2px solid #212121;
   border-radius: 2px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-checkbox:checked + .form-checkbox-policy::before {
-  background-image: url('/img/icon-checked.svg');
+  background-image: url('../img/icon-checked.svg');
   background-position: center;
   background-size: cover;
   background-color: var(--accent-color);
   border: none;
+}
+
+.form-checkbox:focus + .form-checkbox-policy::before {
+  border-color: var(--accent-color);
 }
 
 .policy-checkbox-link {
