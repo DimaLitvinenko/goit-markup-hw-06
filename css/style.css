@@ -714,8 +714,11 @@ img {
   fill: currentColor;
 }
 
-.modal-button-close:hover {
+.modal-button-close:hover,
+.modal-button-close:focus {
   color: var(--accent-color);
+  border-color: var(--title-text-color);
+  outline: none;
 }
 
 .form-title {
@@ -825,6 +828,7 @@ img {
   background-image: url('/img/icon-checked.svg');
   background-position: center;
   background-size: cover;
+  background-color: var(--accent-color);
   border: none;
 }
 
