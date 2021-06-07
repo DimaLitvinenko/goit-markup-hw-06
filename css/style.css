@@ -839,6 +839,10 @@ img {
   border-color: var(--accent-color);
 }
 
+.form-checkbox:focus:checked + .form-checkbox-policy::before {
+  outline: auto var(--title-text-color);
+}
+
 .policy-checkbox-link {
   color: var(--accent-color);
 }
